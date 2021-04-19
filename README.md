@@ -1,2 +1,2 @@
 # Autotesting
-test repo
+test repo for sikuli project
