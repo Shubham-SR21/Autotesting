@@ -2,16 +2,16 @@
 <testng-results skipped="0" failed="0" ignored="0" total="2" passed="2">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="27205" started-at="2021-04-21T23:35:06 IST" finished-at="2021-04-21T23:35:34 IST">
+  <suite name="Default suite" duration-ms="26790" started-at="2021-04-21T23:43:02 IST" finished-at="2021-04-21T23:43:29 IST">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="27205" started-at="2021-04-21T23:35:06 IST" finished-at="2021-04-21T23:35:34 IST">
+    <test name="Default test" duration-ms="26790" started-at="2021-04-21T23:43:02 IST" finished-at="2021-04-21T23:43:29 IST">
       <class name="com.cjc.mt.test.LoginTest">
-        <test-method status="PASS" signature="Browser()[pri:-1, instance:com.cjc.mt.test.LoginTest@6f195bc3]" name="Browser" duration-ms="8805" started-at="2021-04-21T23:35:06 IST" finished-at="2021-04-21T23:35:15 IST">
+        <test-method status="PASS" signature="Browser()[pri:-1, instance:com.cjc.mt.test.LoginTest@6f195bc3]" name="Browser" duration-ms="11213" started-at="2021-04-21T23:43:02 IST" finished-at="2021-04-21T23:43:14 IST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Browser -->
-        <test-method status="PASS" signature="Registertest()[pri:1, instance:com.cjc.mt.test.LoginTest@6f195bc3]" name="Registertest" duration-ms="18335" started-at="2021-04-21T23:35:15 IST" finished-at="2021-04-21T23:35:34 IST">
+        <test-method status="PASS" signature="Registertest()[pri:1, instance:com.cjc.mt.test.LoginTest@6f195bc3]" name="Registertest" duration-ms="15479" started-at="2021-04-21T23:43:14 IST" finished-at="2021-04-21T23:43:29 IST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Registertest -->
