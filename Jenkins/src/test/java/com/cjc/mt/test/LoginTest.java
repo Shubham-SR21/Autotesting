@@ -15,7 +15,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.Test;
 import com.cjc.mt.pages.LoginPages;
-
+import com.cjc.mt.test.LoginTest;
 
 
 public class LoginTest 
