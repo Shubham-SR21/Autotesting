@@ -44,7 +44,7 @@ public class LoginTest
 	{
 		 LoginPages lp=PageFactory.initElements(driver, LoginPages.class);
 		 
-		 FileInputStream fis=new FileInputStream("D:\\SC\\Mtforjenkins.xlsx.xlsx");
+		 FileInputStream fis=new FileInputStream("Mtforjenkins.xlsx");
 		 driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
 		 XSSFWorkbook x=new XSSFWorkbook(fis);
 		 XSSFSheet sheet=x.getSheet("Sheet1");
