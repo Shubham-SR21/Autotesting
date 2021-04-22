@@ -3,11 +3,11 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.cjc.mt.test.LoginTest">
+      <class name="com.cjc.mt.test.AllTest">
         <methods>
-          <include name="Registertest"/>
+          <include name="LoginTest"/>
         </methods>
-      </class> <!-- com.cjc.mt.test.LoginTest -->
+      </class> <!-- com.cjc.mt.test.AllTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
