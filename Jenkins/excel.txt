@@ -35,3 +35,22 @@ wwxxww
 Here we are passed the data
 Registeration is Successfull
 Login is Successfull
+browser open
+maximize window
+Open url
+This is Our Constructor
+Shubham
+Rathod
+5662852145
+shgfgvcdfd@gamil.com
+KarveNagar
+Pune
+Maharashtra
+44452
+INDIA
+shubh2331
+wwxxww
+wwxxww
+Here we are passed the data
+Registeration is Successfull
+Login is Successfull
