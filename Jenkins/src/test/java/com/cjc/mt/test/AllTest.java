@@ -1,6 +1,7 @@
 package com.cjc.mt.test;
 
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
@@ -21,20 +22,21 @@ import org.testng.Assert;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
+import com.cjc.mt.pages.LoginPage;
+import com.cjc.mt.pages.RegisterPages;
 
-import com.cjc.mt.pages.LoginPages;
-import com.cjc.mt.test.LoginTest;
 
-@Listeners(com.cjc.mt.test.ListenerDemo.class)
-public class LoginTest 
+@Listeners(com.cjc.mt.Listener.ListenerDemo.class)
+public class AllTest 
 {
 	WebDriver driver;
-	Logger log=Logger.getLogger(LoginPages.class.getName());
+	
 	Properties pro=new Properties();
 	
 	@Test(priority=-2)
 	public void log4j() throws IOException
 	{
+		Logger log=Logger.getLogger(RegisterPages.class.getName());
 		 Layout la=new PatternLayout(); 
 		 Appender ap=new FileAppender(la,"excel.txt");
 		 log.addAppender(ap);
@@ -42,7 +44,9 @@ public class LoginTest
 	@Test(priority=-1)
 	public void Browser() throws IOException
 	{
-		FileInputStream fis=new FileInputStream("Prop.properties");
+		Logger log=Logger.getLogger(RegisterPages.class.getName());
+
+		FileInputStream fis=new FileInputStream("C:\\Users\\Dell\\git\\New\\Autotesting\\Jenkins\\src\\test\\resources\\Prop.properties");
 		pro.load(fis);
 		System.setProperty("webdriver.chrome.driver", "C:\\Program Files (x86)\\chromedriver.exe");
 		driver= new ChromeDriver();
@@ -66,9 +70,10 @@ public class LoginTest
 		String exptitle= "Register: Mercury Tours";//if the title is different from actual title then remaining code does not execute.
 		Assert.assertEquals(title,exptitle);//hard assert
 		
-		 LoginPages lp=PageFactory.initElements(driver, LoginPages.class);
+		Logger log=Logger.getLogger(RegisterPages.class.getName());
+		RegisterPages lp=PageFactory.initElements(driver, RegisterPages.class);
 		 
-		 FileInputStream fis=new FileInputStream("Mtforjenkins.xlsx");
+		 FileInputStream fis=new FileInputStream("C:\\Users\\Dell\\git\\New\\Autotesting\\Jenkins\\src\\test\\resources\\Mtforjenkins.xlsx");
 		 driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
 		 XSSFWorkbook x=new XSSFWorkbook(fis);
 		 XSSFSheet sheet=x.getSheet("Sheet1");
@@ -127,9 +132,31 @@ public class LoginTest
 			lp.signoff();
 			driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS); 
 			
-			  lp.logindata(usname, password); 
-			  lp.Loginbutton();
+			  
 			  
 		 }
+    @Test(priority =3)
+    public void LoginTest() throws IOException
+    {
+		Logger log=Logger.getLogger(LoginPage.class.getName());
+
+    	 LoginPage lp=PageFactory.initElements(driver, LoginPage.class);
+    	 FileInputStream fis=new FileInputStream("C:\\Users\\Dell\\git\\New\\Autotesting\\Jenkins\\src\\test\\resources\\Mtforjenkins.xlsx");
+		 driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+		 XSSFWorkbook x=new XSSFWorkbook(fis);
+		 XSSFSheet sheet=x.getSheet("Sheet1");
+		 
+		 XSSFRow row=sheet.getRow(1);
+		 XSSFCell col9=row.getCell(9);
+		 XSSFCell col10=row.getCell(10);
+		 
+		 String usname=col9.getStringCellValue();
+		 log.info(usname);
+		 String password=col10.getStringCellValue();
+		 log.info(password);
+
+    	lp.logindata(usname, password); 
+	    lp.Loginbutton();
+    }
 		  
 }

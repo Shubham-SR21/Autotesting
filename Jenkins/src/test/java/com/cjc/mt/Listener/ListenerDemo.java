@@ -1,4 +1,4 @@
-package com.cjc.mt.test;
+package com.cjc.mt.Listener;
 
 import org.testng.ISuite;
 import org.testng.ISuiteListener;
