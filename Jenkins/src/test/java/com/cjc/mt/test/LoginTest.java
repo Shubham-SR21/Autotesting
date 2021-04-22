@@ -5,7 +5,11 @@ import java.io.IOException;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
+import org.apache.log4j.Appender;
+import org.apache.log4j.FileAppender;
+import org.apache.log4j.Layout;
 import org.apache.log4j.Logger;
+import org.apache.log4j.PatternLayout;
 import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
@@ -13,17 +17,28 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.Assert;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
+
 import com.cjc.mt.pages.LoginPages;
 import com.cjc.mt.test.LoginTest;
 
-
+@Listeners(com.cjc.mt.test.ListenerDemo.class)
 public class LoginTest 
 {
 	WebDriver driver;
 	Logger log=Logger.getLogger(LoginPages.class.getName());
 	Properties pro=new Properties();
 	
+	@Test(priority=-2)
+	public void log4j() throws IOException
+	{
+		 Layout la=new PatternLayout(); 
+		 Appender ap=new FileAppender(la,"excel.txt");
+		 log.addAppender(ap);
+	}
 	@Test(priority=-1)
 	public void Browser() throws IOException
 	{
@@ -35,6 +50,9 @@ public class LoginTest
 		driver.manage().window().maximize();
 		log.info("maximize window");
 		driver.get(pro.getProperty("url"));
+		String url=driver.getCurrentUrl();
+		System.out.println("Current URL"+" :"+url);
+		Assert.assertEquals("http://demo.guru99.com/test/newtours/register.php", url);
 		log.info("Open url");
 		
 	}
@@ -42,6 +60,12 @@ public class LoginTest
     @Test(priority = 1)
 	public void Registertest() throws IOException
 	{
+    	String title=driver.getTitle();
+		System.out.println("Title"+": "+title);
+		
+		String exptitle= "Register: Mercury Tours";//if the title is different from actual title then remaining code does not execute.
+		Assert.assertEquals(title,exptitle);//hard assert
+		
 		 LoginPages lp=PageFactory.initElements(driver, LoginPages.class);
 		 
 		 FileInputStream fis=new FileInputStream("Mtforjenkins.xlsx");
@@ -98,6 +122,8 @@ public class LoginTest
 			lp.data(fname, lname, phoneno, emailid, addr, City, State, Pin, Country,usname, password, Cpassword);
 			
 			lp.registerbutton();
+			
+
 			lp.signoff();
 			driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS); 
 			

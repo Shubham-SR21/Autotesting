@@ -1,10 +1,12 @@
 package com.cjc.mt.pages;
 
 import org.apache.log4j.Logger;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
+import org.testng.asserts.SoftAssert;
 
 import com.cjc.mt.pages.LoginPages;
 
@@ -84,6 +86,7 @@ public class LoginPages {
 	public void registerbutton()
 	{
 		button.click();
+		
 		log.info("Registeration is Successfull");
 	}
 	
@@ -100,6 +103,12 @@ public class LoginPages {
 	public void Loginbutton()
 	{
 		loginbutton.click();
+		boolean text=driver.findElement(By.xpath("/html/body/div[2]/table/tbody/tr/td[2]/table/tbody/tr[4]/td/table/tbody/tr/td[2]/table/tbody/tr[1]/td/h3")).isDisplayed();
+		SoftAssert sf=new SoftAssert();
+		
+		sf.assertEquals(text, true);
+		System.out.println("Text is present  :"+text);
+		sf.assertAll();
 		log.info("Login is Successfull");
 	}
 	public void registerlink()
