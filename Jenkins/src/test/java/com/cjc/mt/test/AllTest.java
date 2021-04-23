@@ -1,7 +1,6 @@
 package com.cjc.mt.test;
 
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
@@ -21,7 +20,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
-import org.testng.asserts.SoftAssert;
+
 import com.cjc.mt.pages.LoginPage;
 import com.cjc.mt.pages.RegisterPages;
 
