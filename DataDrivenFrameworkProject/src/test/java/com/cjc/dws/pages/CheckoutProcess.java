@@ -35,7 +35,7 @@ public class CheckoutProcess {
 	@FindBy(how=How.XPATH,using ="//*[@id=\"PickUpInStore\"]")
 	WebElement pickup;
 	@FindBy(how=How.XPATH,using ="//*[@id=\"shipping-buttons-container\"]/input")
-	WebElement Continuebutton1;
+	WebElement Continuebutton1;  
 	@FindBy(how=How.XPATH,using ="//*[@id=\"payment-method-buttons-container\"]/input")
 	WebElement Continuebutton2;
 	@FindBy(how=How.XPATH,using ="//*[@id=\"payment-info-buttons-container\"]/input")

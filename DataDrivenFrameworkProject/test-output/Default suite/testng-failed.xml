@@ -6,7 +6,6 @@
       <class name="com.cjc.dws.tests.AllTestcomb">
         <methods>
           <include name="maximize"/>
-          <include name="cartdtest"/>
           <include name="openURL"/>
           <include name="openBrowser"/>
           <include name="cookies"/>

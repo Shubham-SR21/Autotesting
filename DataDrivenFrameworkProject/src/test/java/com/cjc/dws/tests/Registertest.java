@@ -33,7 +33,7 @@ public class Registertest   {
 	{
 		RegisterPage1 rp = PageFactory.initElements(driver, RegisterPage1.class);
 		
-		FileInputStream fls= new FileInputStream("C:\\Users\\Dell\\eclipse-workspace\\DataDrivenFrameworkProject\\src\\test\\java\\com\\cjc\\dws\\utility\\Projectexcel.xlsx");
+		FileInputStream fls= new FileInputStream("C:\\Users\\Dell\\git\\New\\Autotesting\\DataDrivenFrameworkProject\\src\\test\\resources\\Projectexcel.xlsx");
 	
 		XSSFWorkbook xsw = new XSSFWorkbook(fls);
 		XSSFSheet sheet = xsw.getSheet("Sheet1");
@@ -48,7 +48,7 @@ public class Registertest   {
 			XSSFCell col3 =row.getCell(3);
 			XSSFCell col4 =row.getCell(4);
 			
-			driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		
 			
 			String fname= col0.getStringCellValue();
 			log.info("first Name: "+fname);
