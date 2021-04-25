@@ -3,11 +3,15 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Suite]">
   <test thread-count="5" name="Test(failed)">
     <classes>
-      <class name="com.cjc.dws.tests.Registertest">
+      <class name="com.cjc.dws.tests.AllTestcomb">
         <methods>
-          <include name="Registerdata"/>
+          <include name="maximize"/>
+          <include name="openURL"/>
+          <include name="openBrowser"/>
+          <include name="cookies"/>
+          <include name="registerTestpage"/>
         </methods>
-      </class> <!-- com.cjc.dws.tests.Registertest -->
+      </class> <!-- com.cjc.dws.tests.AllTestcomb -->
     </classes>
   </test> <!-- Test(failed) -->
 </suite> <!-- Failed suite [Suite] -->
